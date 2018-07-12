@@ -54,7 +54,12 @@
   <a href="/history" onclick="w3_close()" class="w3-bar-item w3-button">역사</a>
   <a href="/gallery" onclick="w3_close()" class="w3-bar-item w3-button">갤러리</a>
   <a href="/community" onclick="w3_close()" class="w3-bar-item w3-button">커뮤니티</a>
+   <% if(!isAuthenticated){%>
   <a href="/login" class="w3-bar-item w3-button">로그인</a>
+   <% } else{%>
+        <a href="/profile" class="w3-bar-item w3-button"> <%= currentUser.user_name %>님</a> 
+        <a href="/logout" class="w3-bar-item w3-button">로 그 아 웃</a>
+        <% } %>
 </nav>
 
 
