@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#menu").load("menu.html")
+        $("#footer").load("footer.html")	
+    });
+</script>
+  
+<body>
+<div id="menu"></div>  
+ <%- include menu.ejs%>
+<div align="center">
+
+    <div class="w3-container w3-center" style="max-width:1000px;margin-top:83px; margin-bottom:83px">
+
+<table class="w3-table-all" style="word-break: break-all;">
+		<tr class="w3-light-grey">		
+			<th class="w3-center"><font size='4'><b><%=boardInfo[0].community_title%></font></th>
+		</tr>
+        <tr class="w3-white">
+			<th class="w3-right">작성자 :<%=boardInfo[0].community_name%> &nbsp;&nbsp;&nbsp; 등록일 : <%=boardInfo[0].community_date%> &nbsp;&nbsp;&nbsp; 조회수 :<%=boardInfo[0].community_count%></th> 
+        </tr>
+		<tr class="w3-center">
+			<th><%=boardInfo[0].community_content%></th>
+        </tr>
+</table><br><br>
+
+<font class="w3-left" size='3' style="font-family:Comic Sans MS;"><b>Comment[<%=comment.length%>]</font><br><br>
+<hr class="my-hr">    
+
+<ul style="margin:0px; padding:0px; list-style:none;">
+    <%for(var i=0; i<comment.length; i++){%>
+    <li style="margin:0px; padding:0px; list-style:none;">
+    <font class="w3-left" size='2' style="font-family:Comic Sans MS;"><%=comment[i].bcom_id%></font> <font class="w3-left" size='1'>Date : <%=comment[i].bcom_date%></font>
+    <%if(isAuthenticated){%>
+    <%if(currentUser.user_id==comment[i].bcom_id){%>
+    <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/process/del_community_comment?num=<%=comment[i].bcom_idx%>&page=<%=boardInfo[0].community_idx%>" class="w3-right">X</a>
+    <%}}%>
+    <br>
+    <font class="w3-left" size='2' style="font-family:Comic Sans MS;"><%=comment[i].bcom_content%></font>
+    </li><br><br>
+    <%}%>
+</ul>
+<hr class="my-hr">      
+
+    <%if(isAuthenticated){%>
+    <form action="/process/community_comment" method="post" style="max-width:1000px">
+    <b class="w3-left">comment</b>&nbsp;
+  <input type="text" class="w3-input" placeholder="댓글을 입력해주세요" maxlength="99" name="community_comment" required><br>
+    <div class="w3-right"><button type="submit" class="w3-button w3-white w3-border w3-border-red w3-round-large">댓글등록</button></div>
+     <input type="hidden" name="num" value="<%=boardInfo[0].community_idx%>">
+    </form><br><br><br><br><br>
+    <%}%>
+<form action="/modify_community" method="post">
+<div class="w3-margin w3-right">
+	<a href="/community" class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">목록</a>
+    <%if(isAuthenticated){%>
+    <%if(currentUser.user_id==boardInfo[0].community_name){%>
+	<button type="submit" class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">수정</button>
+    <input type="hidden" name="num" value="<%=boardInfo[0].community_idx%>">
+	<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/process/deleteBoard?num=<%=boardInfo[0].community_idx%>" class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">삭제</a>
+    <%}}%>
+</div>    
+</form>
+
+
+    </div>
+</div>
+
+<div id="footer"></div>   
+
+</body>
+</html>

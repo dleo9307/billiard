@@ -1,0 +1,22 @@
+/*파일선택시 선택된 파일명이 붙는것을 가려준다*/
+
+.w3-button input[type="file"]{
+
+	position: absolute; 
+
+	width: 1px; 
+
+	height: 1px; 
+
+	padding: 0; 
+
+	margin: -1px; 
+
+	overflow: hidden; 
+
+	clip:rect(0,0,0,0); 
+
+	border: 0;
+
+}
+

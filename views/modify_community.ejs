@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+       $("#menu").load("menu.html")
+  $("#footer").load("footer.html")	
+    });
+</script>
+  
+<body>
+<div id="menu"></div>  
+ <%- include menu.ejs%>
+<div align="center">
+<div class="w3-container w3-center" style="max-width:1000px;margin-top:83px; margin-bottom:83px">
+
+	<form method="post" action="/process/modify_community">
+		<table class="w3-table-all" style="word-break: break-all;">
+			<thead>
+				<tr>
+					<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><input type="text" class="w3-input" placeholder="글 제목" name="community_title" maxlength="50" required value="<%=boardInfo[0].community_title%>"></th>
+				</tr>
+				<input type="hidden" name="num" value="<%=num%>">
+				<tr>
+					<th><textarea class="w3-input" placeholder="글 내용" name="community_contents" maxlength="1000" style="height: 350px;" required value="<%=boardInfo[0].community_content%>"></textarea></th>
+				</tr>
+			</tbody>
+		</table>
+
+    <div class="w3-margin w3-right">
+	    <a href="/community" class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">목록</a>
+	    <button type="submit" class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">수정</button>
+    </div>    
+    
+    </form>
+
+
+    </div>
+</div>
+
+<div id="footer"></div>   
+
+</body>
+</html>        

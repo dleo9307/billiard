@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#footer").load("footer.html")	
+  });
+</script>    
+
+<body>
+<%- include menu.ejs%>
+
+<!-- main -->
+<div class="w3-main">
+
+    <div class="w3-row w3-padding-64">
+      <div class="w3-container w3-margin">
+        <h1 class="w3-text-teal">4구</h1>
+        <p>경기규칙
+
+          득점을 하기 위해서는 큐를 이용해서 큐팁부분으로 자기의 수구를 쳐서 2개의 빨간공을 맞추면 득점으로
+
+          인정되고, 또한번의 기회가 주어집니다. 그러니까 득점을 하면 득점을 못 할때까지 계속치는 겁니다.
+          
+          득점을 못 하면 상대방의 차례가 되는 간단하고, 쉬운 게임입니다.          
+          
+          그러나, 실전에서 해보면 쉽지만은 않아요. 연습이 필요합니다.          
+          
+          여기까지가 가장 쉬운 4구게임의 기본규칙이고 다음에 나오는 파울에 대해서는 잘 알아두셔야 합니다.
+          
+          사실 원래 4구경기에서는 파울을 해도 그냥 다음 사람으로 순서가 넘어가지만 한국의 동호인들의
+                   
+          게임에서는 그렇지 않고 벌점 1점을 받습니다. 또, 4구에서는 자기 점수를 모두 득점하면 끝내야 하는데         
+          
+          보통 당구장에서는 마무리 쿠션이라고 해서 3쿠션으로 한개를 더 쳐야 게임을 끝내는 것으로 되어 있습니다.        
+          
+          한국사람들 머리가 좋은 관계로 위의 기본 룰에서 여러가지 파생된 게임을 만들어 냈습니다.        
+          
+          4구 자체만으로도 규칙을 바꾸지도 하지만 공의 갯 수가 늘어나는 경우도 있습니다.          
+          
+          이를테면 씩스볼, 나인볼 예전에는 6개의 공으로 4구의 기본룰을 적용한 게임도 하고,         
+          
+          좀 어렵지만 9개의 공으로 4구의 룰을 적용해서 게임을 하기도 했습니다. 당연히 포켓볼의 나인볼 절대 아닙니다. 요즘은 나인볼 보기 정말 힘들구요. 식스볼도 보기 많이 힘들어 졌습니다.        
+          
+          초보자용 게임으로 고도리도 있습니다.        
+          
+          베트남에서 온 사람들은 3개의 공(흰공, 노란공, 빨간공)만으로 4구와 같은 게임을 즐기기도 합니다.
+          
+          
+          
+          파울인경우
+             
+          파울인 경우를 제외하고는 득점 아니면 다음 선수차례로 넘어갑니다.
+                
+          1. 흰공을 큐팁이외의 다른 부분으로 건들었을때.
+               
+          2. 신체의 일부 또는 옷깃등이 흰공이나 빨간공 상대의 수구등을 만지거나 건들었을 경우         
+          
+          3. 공이 완전히 멈추지 않은 상태에서 공을 친경우          
+          
+          4. 나의 수구가 상대방의 수구를 맞춘경우          
+          
+          5. 나의 수구가 빨간공을 맞추지 못 한경우          
+          
+          6. 공을 쳤는데 어떤 공이라도 당구테이블 밖으로 나간경우         
+          
+          7. 수구를 큐로 두번 건들인 경우 -쉽지는 않지만 적구와 수구가 붙어있을 때 자주 발생합니다.(투터치)         
+          
+          일본어로는 니꾸라고 합니다. 그러나 이제부터는 투터치 아니면 그냥 파울로 부르세요.        
+          
+          8. 나의 차례가 아닌데 공을 친경우</p>
+
+          <img src="public/photo/4ball.jpg" class="w3-image" width="1000" height="500">
+      </div>
+    </div>
+    
+
+</div>
+  
+<div id="footer"></div>
+
+</body>
+</html>

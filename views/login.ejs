@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<body class="bgimg">
+
+    <div class="w3-content w3-card-4" style="max-width:400px; margin-top: 100px">
+        
+        <div class="w3-container w3-teal">
+            <h5>로그인</h5>
+        </div> 
+
+      <form class="w3-container w3-white" method="POST" action="/process/login" name="login">
+        <div class="w3-section">
+          <label><b>아이디</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" maxlength="20" placeholder="아이디를 입력해주세요" name="id" required>
+         
+          <label><b>비밀번호</b></label>
+          <input class="w3-input w3-border" type="password" maxlength="30" placeholder="비밀번호를 입력해주세요" name="password" required>
+          
+          <div class="help"><span style="color:red"><%=message%></span></div>
+          <br>
+          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">로그인</button>
+        </div>
+      </form>
+    
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <a href="/home" class="w3-button w3-red">이전</a>
+        <a href="/regist" class="w3-button w3-red w3-right">회원가입</a>
+      </div>
+
+  </div>
+
+</body>
+</html> 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<body>
+<div id="home"></div>  
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="/home" class="w3-bar-item w3-button w3-wide">Biliard</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+        
+      <div class="dropdown w3-left w3-hide-small">
+            <a href="/3cushion"><button class="dropbtn"><i class="fa fa-file"> 규 칙</i></button></a>
+            <div class="dropdown-content">
+                <a href="/3cushion">3구</a>
+                <a href="/4ball">4구</a>
+                <a href="/carom">포켓볼</a>
+            </div>
+      </div>
+
+      <a href="/history" class="w3-bar-item w3-button"><i class="fa fa-search"></i> 역 사</a>
+      <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-th"></i> 갤 러 리</a>
+      <a href="/community" class="w3-bar-item w3-button"><i class="fa fa-user"></i> 커 뮤 니 티</a>
+            <% if(!isAuthenticated){%>
+      <a href="/login" class="w3-bar-item w3-button">로 그 인</a>
+      <% } else{%>
+        <a href="/profile" class="w3-bar-item w3-button"> <%= currentUser.user_name %>님</a> 
+        <a href="/logout" class="w3-bar-item w3-button">로 그 아 웃</a>
+        <% } %>
+
+    </div>  
+
+      
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- 모바일메뉴 -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">닫기</a>
+  <a href="/3cushion" onclick="w3_close()" class="w3-bar-item w3-button">3구</a>
+  <a href="/4ball" onclick="w3_close()" class="w3-bar-item w3-button">4구</a>
+  <a href="/carom" onclick="w3_close()" class="w3-bar-item w3-button">포켓볼</a>
+  <a href="/history" onclick="w3_close()" class="w3-bar-item w3-button">역사</a>
+  <a href="/gallery" onclick="w3_close()" class="w3-bar-item w3-button">갤러리</a>
+  <a href="/community" onclick="w3_close()" class="w3-bar-item w3-button">커뮤니티</a>
+  <a href="/login" class="w3-bar-item w3-button">로그인</a>
+</nav>
+
+
+
+<script>
+ 
+ var mySidebar = document.getElementById("mySidebar");
+ 
+ function w3_open() {
+     if (mySidebar.style.display === 'block') {
+         mySidebar.style.display = 'none';
+       }
+    else {
+         mySidebar.style.display = 'block';
+          }
+    }
+        
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+</script>  
+
+</body>
+</html>

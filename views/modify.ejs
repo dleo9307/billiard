@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<head>
+</head>
+
+<body class="bgimg">
+
+    <div class="w3-content w3-card-4" style="max-width:600px;">
+        
+        <div class="w3-container w3-teal">
+            <h5>회원가입</h5>
+        </div> 
+
+      <form class="w3-container w3-white" method="POST" action="/process/modify" name="member">
+        <div class="w3-section">
+          <label><b>아이디</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" id="userid" maxlength="20" minlength="5" value="<%= currentUser.user_id %>" name="id" readonly>
+          <span id=checkmsg></span><br>
+          
+          <label><b>비밀번호</b></label>
+          <input class="w3-input w3-border" type="password" id="password" maxlength="30" minlength="9" value="<%= currentUser.user_pass %>" name="password" required><br
+    
+          <label><b>이름</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" maxlength="10" minlength="1" value="<%= currentUser.user_name %>" name="name" required><br>
+           
+          <label><b>나이</b></label>
+          <select class="w3-select" name="age">
+                <option value="" disabled selected>나이를 선택해주세요</option>
+                <option value="10">10대</option>
+                <option value="20">20대</option>
+                <option value="30">30대</option>
+                <option value="40">40대</option>
+                <option value="50">50대</option>
+                <option value="60">60대</option>
+                <option value="70">70대</option>
+                <option value="80">80대</option>
+                <option value="90">90대</option>
+          </select>
+          <br><br><br>   
+
+          <label><b>성별</b></label><br>
+          <input class="w3-radio" type="radio" name="gender" value="male" checked>
+          <label>남자</label>
+          <input class="w3-radio" type="radio" name="gender" value="female">
+          <label>여자</label></p><br>
+             
+                
+          <br>
+        </div>
+<div class="w3-container w3-border-top w3-padding-16 w3-light-grey  w3-center">
+        <button type="submit" class="w3-green" >수정</button>
+      </div>
+      </form>
+    
+      
+
+  </div>
+
+
+
+</body>
+</html> 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#footer").load("footer.html")	
+  });
+</script>    
+
+<body>
+<%- include menu.ejs%>
+
+<!-- main -->
+<div class="w3-main">
+
+    <div class="w3-row w3-padding-64"   id="carom">
+      <div class="w3-container w3-margin">
+        <h1 class="w3-text-teal">포켓볼</h1>
+        <p>포켓볼(영어: pocket billiards, pool)은 당구 경기의 일종이다. 캐롬(영어: carom)(포켓이 없는 당구)과는
+          다르게 포켓이 6개 있는 당구대에서 1~15 숫자가 적혀있는 공을 이용한다. 흰 공(수구)를 이용해 1~15번 공(목적구)을 쳐서 포켓에 넣는 게임이다.
+          세계포켓볼협회에서 인정하는 포켓볼 경기은 8볼과 9볼과 14-1 래크게임 등이 있다.
+        </p>
+          <img src="public/photo/carom.gif" class="w3-image" width="1000" height="500">
+      </div>
+    </div>
+
+</div>
+  
+<div id="footer"></div>
+
+</body>
+</html>

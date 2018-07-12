@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<head>
+</head>
+
+<body class="bgimg">
+
+    <div class="w3-content w3-card-4" style="max-width:600px;">
+        
+        <div class="w3-container w3-teal w3-center" >
+            <h5>회원 정보</h5>
+        </div> 
+
+      <form class="w3-container w3-white" action="/process/modify" name="member">
+        <div class="w3-section w3-center">
+          <label><b>아이디 : </b></label>
+          <%= currentUser.user_id %><br>
+      
+          <label><b>이름 : </b></label>
+          <%= currentUser.user_name %><br>
+           
+          <label><b>나이 : </b></label>
+          <%= currentUser.user_age %><br>
+
+          <label><b>성별 : </b></label>
+          <%= currentUser.user_sex %><br>
+             
+                
+          <br>
+          <a href="/modify" class="w3-button w3-green w3-center">회원수정</a>
+        </div>
+      </form>
+    
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey w3-center">
+        <a href="/home" class="w3-button w3-red">홈으로</a>
+      </div>
+
+  </div>
+</body>
+</html> 

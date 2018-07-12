@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#footer").load("footer.html")	
+  });
+</script>    
+
+<body>
+<%- include menu.ejs%>
+
+
+<!-- main -->
+<div class="w3-main">
+
+    <div class="w3-row w3-padding-64">
+      <div class="w3-container w3-margin">
+        <h1 class="w3-text-teal">3구(3쿠션)</h1>
+        <p>수구가 제1적구와 제2적구를 모두 맞추기 전에 3번이상의 쿠션을 맞추어야 점수가 인정되는 규칙. 또는, 이런 규칙을 적용한 경기 방식.
+
+          다음 중 한가지가 성립되어야 점수로 인정된다.
+          
+          수구가 제1적구를 맞춘 뒤, 쿠션에 3번이상 접촉한 뒤, 제2적구를 맞춘다.
+          
+          수구가 쿠션에 1번 접촉한 뒤, 제1적구를 맞추고, 쿠션에 2번 이상 접촉한 다음 제2적구를 맞춘다.
+          
+          수구가 쿠션에 2번 접촉한 뒤, 제1적구를 맞추고, 쿠션에 1번 이상 접촉한 다음 제2적구를 맞춘다.
+          
+          수구가 쿠션에 3번이상 접촉한 뒤, 제1적구와 제2적구를 맞춘다. [1]
+          
+          
+          쓰리쿠션 국제 경기는 국제경기용 당구대[2]에서 3개의 공을 이용해서 진행하며, 위의 규칙대로 공을 맞출 경우 1점씩 증가하며, 총 40점이 될때까지 진행한다. 참고로, 캐롬국제규정에 의하면 종료 점수는 연맹에 의해서 결정된다 라고 되어 있다. 즉, 각 협회에서 주관하는 대회에 따라 최종점수가 달라질 수 있다는 말. 2014년 현재 국내대회는 40점제로 진행중이며, 다른 나라에서 개최되는 경기는 점수가 다를 수 있다.
+          
+          종전에는 선/후공 관계 없이 먼저 목표점수를 달성하는 플레이어가 위닝샷과 동시에 승리하였으나, 이럴 경우 선공이 유리하다는 단점이 계속 지적되었다. 물론 그러한 선공의 장점을 따내기 위해서 뱅킹을 통해서 선공/후공을 가리지만, 논란은 계속 되었었다.
+          
+          결국, 규칙을 이닝제로 변경하면서 선공이 먼저 목표점수에 도달하더라도 후공에게도 마지막 기회가 주어진다. [3] 마지막 이닝에서 후공이 목표점수에 도달하지 못하면 그대로 승부가 결정나지만, 후공 역시 목표점수에 도달한 경우에는 승부치기를 시행한다. 승부치기에서는 선/후공 각 1이닝에 많은 점수를 득점한 플레이어가 승리하며, 동률일 경우 승부가 결정될 때 까지 계속 반복한다.
+          
+          일반 경기에서는 일반 당구대에서 3개 또는 4개의 공을 이용해서 진행한다.
+          
+          이 규칙을 변형하여 내기 당구 형태로 즐기는 죽빵 이란 경기 규칙이 있다.</p>
+
+          <img src="public/photo/3cushion.jpg" class="w3-image" width="1000" height="500">
+      </div>
+    </div>
+<div id="footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#footer").load("footer.html")	
+    });
+</script>    
+
+<body>
+<%- include menu.ejs%>
+    
+<!-- main -->
+<div class="w3-main w3-container w3-margin w3-padding-64">
+
+<table class="w3-table w3-bordered w3-striped w3-border w3-hoverable">
+    <tr>
+        <th>No.</th>
+        <th>Title</th>
+        <th>Writer</th>
+        <th>Date</th>
+        <th>Count</th>
+    </tr
+    <% for(var i=0; i<boardInfo.length; i++){%>
+    <tr>
+        <td class="number"><%=boardInfo[i].community_idx%></td>
+        <td class="title"><a href="/view_community?num=<%=boardInfo[i].community_idx%>" style="text-decoration:none"><%=boardInfo[i].community_title%>[<%=boardInfo[i].commentTotalCnt%>]&nbsp;&nbsp;</a></td>
+        <td class="writer"><%=boardInfo[i].community_name%></td>
+        <td class="date"><%=boardInfo[i].community_date%></td>
+        <td class="cnt"><%=boardInfo[i].community_count%></td>
+        
+    </tr>
+    <%}%>
+</table>
+<br><br>
+
+ <div class="">
+    <%if(isAuthenticated){%>
+    <form action="/write_community" method="post"><button type="submit" class="w3-button w3-white w3-border w3-border-red w3-round-large">새 글</button></form>
+    <%}%>
+ </div>
+
+</div>
+
+<div id="footer"></div>
+
+</body>
+</html>

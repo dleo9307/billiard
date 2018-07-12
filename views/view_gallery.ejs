@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#menu").load("menu.html")
+        $("#footer").load("footer.html")
+    });
+
+    function check() {
+        if (comcheck.gallery_comment.value.length < 1) {
+            alert("댓글을 입력해주세요");
+            comcheck.gallery_comment.focus();
+            return false;
+        }
+        else comcheck.submit();
+    }
+</script>
+
+<body>
+    <div id="menu"></div>
+    <%- include menu.ejs%>
+    <div align="center">
+
+        <div class="w3-container w3-center" style="max-width:1000px;margin-top:83px; margin-bottom:83px">
+
+            <table class="w3-table-all" style="word-break: break-all;">
+                <tr class="w3-gray">
+                    <th class="w3-center"><font size='4'><b><%=viewinfo[0].gall_title%></font></th>
+                </tr>
+                <tr class="w3-center">
+                    <th class="w3-center"><img src="<%=viewinfo[0].gall_path%>" style="width:80%"></th>
+                </tr>
+            </table><br><br>
+
+            <font class="w3-left" size='3' style="font-family:Comic Sans MS;"><b>Comment</font><br><br>
+            <hr class="my-hr">
+            <ul style="margin:0px; padding:0px; list-style:none;">
+                <%for(var i=0; i < commentinfo.length; i++) {%>
+                <li style="margin:0px; padding:0px; list-style:none;">
+                    <font class="w3-left" size='2' style="font-family:Comic Sans MS;"><%=commentinfo[i].gcom_id%></font> <font class="w3-left" size='1'><%=commentinfo[i].gcom_date%></font>
+                    <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/delete_comment?num=<%=commentinfo[0].gcom_idx%>" class="w3-right">X</a><br>
+                    <font class="w3-left" size='2' style="font-family:Comic Sans MS;"><%=commentinfo[i].gcom_content%></font>
+                </li>
+                <br>
+                <%}%>
+
+            </ul>
+            <hr class="my-hr">
+            <form action="/regist_comment?num=<%=viewinfo[0].gall_idx%>" method="POST" style="max-width:1000px" name="comcheck">
+                <b class="w3-left">comment</b>&nbsp;
+                <input type="text" class="w3-input" placeholder="댓글을 입력해주세요" maxlength="150" name="gallery_comment" required><br>
+                <div class="w3-right"><button onclick="check()" class="w3-button w3-white w3-border w3-border-red w3-round-large">댓글등록</button></div>
+            </form><br><br><br><br><br>
+
+            <div class="w3-margin w3-right">
+                <a href="/gallery" class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">목록</a>
+                <a href="/modify_gallery?num=<%=viewinfo[0].gall_idx%>&title=<%=viewinfo[0].gall_title%>&path=<%=viewinfo[0].gall_path%>"
+                   class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">수정</a>
+                <a onclick="return confirm('정말로 삭제하시겠습니까?')"
+                   href="/delete_gallery?num=<%=viewinfo[0].gall_idx%>&path=<%=viewinfo[0].gall_path%>"
+                   class="w3-button w3-white w3-border w3-border-red w3-round-large" style="margin: 8px">삭제</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+</body>
+</html>

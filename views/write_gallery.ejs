@@ -1,0 +1,162 @@
+<html>
+<title>Biliard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="public/css/write_photo.css">
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<head>
+    <script>
+
+function checkTitle(){
+
+if(reg_photo.photo_title.value.length<1){
+    alert("제목을입력해주세요");
+    reg_photo.photo_title.focus();
+    return false;
+}
+
+}
+
+/* 파일이 이미지파일인지 확인하는 함수*/
+function checkPhoto(){
+
+    if(document.getElementById("fileName").value=="파일선택"){
+        alert("파일을 등록해주세요.");
+        return false;
+    }
+    var fileName=document.getElementById("fileName").value;
+    var fileSuffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+    fileSuffix = fileSuffix.toLowerCase();
+
+    if ( "jpg" == fileSuffix || "jpeg" == fileSuffix  || "gif" == fileSuffix || "bmp" == fileSuffix || "png" == fileSuffix)
+        return true;
+    else
+        return false;
+}
+
+/* 업로드 전에 이미지파일의 크기(bytes)를 알아오는 함수 */
+ function checkSize(){
+
+        var maxSize  = 7340032;
+        var size = document.getElementById("myFileUp").files[0].size;
+
+        if(size>maxSize){
+            return false;
+        }
+
+        else
+            return true;
+
+
+
+   }
+
+
+function check(){
+
+    if(checkTitle()==false)
+    return false;
+
+    var photo=checkPhoto();
+    var size=checkSize();
+
+    if(photo==true && size==true){
+        alert("파일이 등록되었습니다.");
+        reg_photo.submit();
+    }
+
+    else if(photo==true && size==false){
+        alert("파일 용량은 7M이내로 해주세요.");
+    }
+
+    else{
+    document.getElementById('fileName').value="파일선택";
+    alert("이미지파일이 아닙니다.");
+    return false;
+    }
+}
+
+    </script>
+</head>
+
+
+
+
+
+<body>
+    <!-- 파일등록 -->
+    <form action="/process/reg" method="post" enctype="multipart/form-data" name="reg_photo">
+
+        <div class="form-group" style="margin: 8px 8px 8px;">
+            <p>사진업로드 (*파일업로드는 jpg,jpeg,gif,bmg,png 파일만 가능합니다.)</p><br>
+
+            제목
+            <input type="text" class="w3-input" placeholder="사진 제목을 입력해주세요" maxlength="15" name="photo_title" style="max-width:50%"><br>
+
+            <input id="fileName" class="form-control" value="파일선택" disabled="disabled" style="width:50%;">
+
+            <div class="w3-button w3-round-large w3-Orange w3-text-white">
+                <label for="myFileUp">파일등록하기</label>
+                <input type="file" id="myFileUp" name="photo">
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="selectCover" style="padding-left: 10;">
+            <img id="cover" src="/public/photo/noimg.jpg" style="width: 60%; height: 80%;" />
+        </div>
+
+
+        <center>
+            <a href="/gallery" class="w3-button w3-round-large w3-Orange w3-text-white w3-margin">이전화면으로</a>
+            <button type="button" class="w3-button w3-round-large w3-Orange w3-text-white w3-margin" onclick="check()">등록하기</button>
+        </center>
+
+    </form>
+
+    <script>
+function readURL(input) {
+
+console.log("버튼클릭함1");
+
+if (input.files && input.files[0]) {
+
+var reader = new FileReader();
+
+reader.onload = function (e) {
+
+        $('#cover').attr('src', e.target.result);        //cover src로 붙여지고
+
+        $('#fileName').val(input.files[0].name);    //파일선택 form으로 파일명이 들어온다
+
+    }
+
+  reader.readAsDataURL(input.files[0]);
+
+}
+
+}
+
+
+
+$("#myFileUp").change(function(){
+
+readURL(this);
+
+console.log("이미지 바뀜?");
+
+});
+    </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<title>Biliard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="public/css/biliard.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<head>
+</head>
+
+<body class="bgimg">
+
+    <div class="w3-content w3-card-4" style="max-width:600px;">
+        
+        <div class="w3-container w3-teal">
+            <h5>회원가입</h5>
+        </div> 
+
+      <form class="w3-container w3-white" method="POST" action="/process/regist" name="member">
+        <div class="w3-section">
+          <label><b>아이디</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" id="userid" maxlength="20" minlength="5" placeholder="아이디를 입력해주세요" name="reg_id" required>
+          <span id=checkmsg></span><br>
+          
+        
+
+          <label><b>비밀번호</b></label>
+          <input class="w3-input w3-border" type="password" id="password" maxlength="30" minlength="9" placeholder="비밀번호를 입력해주세요" name="reg_password" required><br>
+          
+          <label><b>비밀번호확인</b></label>
+          <input class="w3-input w3-border" type="password" id="confirm_password" maxlength="30" minlength="9" placeholder="비밀번호를 다시입력해주세요" name="reg_passwordcheck" required><br>
+    
+          <label><b>이름</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" maxlength="10" minlength="1" placeholder="이름을 입력해주세요" name="reg_name" required><br>
+           
+          <label><b>나이</b></label>
+          <select class="w3-select" name="reg_age">
+                <option value="" disabled selected>나이를 선택해주세요</option>
+                <option value="10">10대</option>
+                <option value="20">20대</option>
+                <option value="30">30대</option>
+                <option value="40">40대</option>
+                <option value="50">50대</option>
+                <option value="60">60대</option>
+                <option value="70">70대</option>
+                <option value="80">80대</option>
+                <option value="90">90대</option>
+          </select>
+          <br><br><br>   
+
+          <label><b>성별</b></label><br>
+          <input class="w3-radio" type="radio" name="reg_gender" value="male" checked>
+          <label>남자</label>
+          <input class="w3-radio" type="radio" name="reg_gender" value="female">
+          <label>여자</label></p><br>
+             
+                
+          <br>
+          <button class="w3-button w3-block w3-green w3-section w3-padding" id="sumitbtn" type="submit">회원가입</button>
+        </div>
+      </form>
+    
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <a href="/home" class="w3-button w3-red">홈으로</a>
+        <a href="/login" class="w3-button w3-red w3-right">로그인</a>
+      </div>
+
+  </div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $('#userid').keyup(function(){
+        if ( $('#userid').val().length > 4) {
+            var id = $(this).val();
+            // ajax 실행
+            $.ajax({
+                type : 'POST',
+                url : '/checkId',
+                data:
+                {
+                    id: id
+                },
+                success : function(result) {
+                    if (result.result=="YES") {
+                        $("#checkmsg").html("<span style='color:blue'>사용 가능한 아이디 입니다.</span>");
+                        $('#sumitbtn').attr('disabled',false);  //버튼 활성화 
+                    } else {
+                        $("#checkmsg").html("<span style='color:red'>현재 사용중인 아이디 입니다.</span>");
+                        $('#sumitbtn').attr('disabled',true);   //버튼 비활성화 
+                    }
+
+                }
+            }); // end ajax
+        }
+
+           else {
+                   $('#checkmsg').html("5자리 이상 입력해주세요");
+                   $('#sumitbtn').attr('disabled',true);
+                 }
+    }); // end keyup
+});
+</script>
+
+
+<script>
+    var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+//비밀번호 확인        
+function validatePassword(){
+    if(password.value != confirm_password.value) {
+       confirm_password.setCustomValidity("비밀번호가 일치하지않습니다.");
+        } else {
+              confirm_password.setCustomValidity('');
+          }
+        }
+        
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+</script>
+
+</body>
+</html> 
