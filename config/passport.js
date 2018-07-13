@@ -14,7 +14,7 @@ module.exports = function(passport) {
     //페이지 이동할 때 로그인(세션) 여부확인      
     passport.deserializeUser(function (user, callback) { 
         console.log('deserializeUser 호출됨');
-        db.get().query('select * from sql10247219.user_info, sql10247219.user_rank where user_info.user_id=? and user_rank.user_id = ?;', [user.user_id, user.user_id], function(err,result){
+        db.get().query('select * from heroku_fba3ee939ab66f8.user_info, heroku_fba3ee939ab66f8.user_rank where user_info.user_id=? and user_rank.user_id = ?;', [user.user_id, user.user_id], function(err,result){
             var user=result[0];
             callback(null,user);
         });
