@@ -1,6 +1,7 @@
 var db = require('../config/db');
 var sql = require('../config/sql');
 var multer = require('multer');
+
 var storage = multer.diskStorage({
     destination: './public/photo/gallery/',
     filename: function (req, file, callback) {
@@ -105,7 +106,7 @@ module.exports = function (router) {
             else if (result) {
                 console.log("gallery 삭제 완료");
                 fs.unlink(path);
-                res.send("<script>location.href='/gallery'</script>");
+                res.send("<script>alert('게시물이 삭제되었습니다.');location.href='/gallery'</script>");
             }
         });
     });
